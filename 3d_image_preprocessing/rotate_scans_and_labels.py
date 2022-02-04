@@ -1,12 +1,12 @@
 '''
+This script rotates scans and their associated labelmaps randomly along 3 axis - can specify range of rotational angles with a1_min, a1_max, a2_min, a2_max variables
+
 file structure:
 python script 
 	raw scans folder
 	labels folder 
 	rotated raw scans folder (where they will be saved)
 	rotated labels folder (where they will be saved)
-
-This script rotates scans and their associated labelmaps randomly along 3 axis - can specify range of rotational angles with a1_min, a1_max, a2_min, a2_max variables
 
 input scans and labels need not be the same resolution. Output rotated scans and labels will match input label resolution.
 
