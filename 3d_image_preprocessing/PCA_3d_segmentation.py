@@ -4,7 +4,6 @@
 
 # this script applies PCA to a 3d segmentation
 
-
 import nibabel as nib
 import SimpleITK as sitk
 import os, sys
@@ -42,27 +41,12 @@ def IE_localize_smooth_select_largest(filename):
 	for index, num in enumerate(x_coords, start=0):
         	array_to_cluster_IE_positions.append([x_coords[index],y_coords[index],z_coords[index]])
 
-	#fit kmeans clustering based on indices of specified labelmap
-	#kmeans.fit(array_to_cluster_IE_positions)
 	pca = PCA(n_components=3)
 	print(array_to_cluster_IE_positions)
 	pca.fit(array_to_cluster_IE_positions)
 
-	#set values of output labelmap based on clustering results
-	#for index, num in enumerate(array_to_cluster_IE_positions, start=0):
-        	#np_sitk_img_cca[num[0],num[1],num[2]] =  kmeans.labels_[index]+1
-
 	print(pca.explained_variance_ratio_)
 	print(pca.components_)
-
-	#sitk_img = sitk.GetImageFromArray(np_sitk_img_cca) # np array back to sitk image
-	#sitk_img.SetOrigin(sitk_img_origin)
-	#itk_img.SetSpacing(sitk_img_spacing)
-	#sitk_img.SetDirection(sitk_img_direction)
-
-	#sitk.WriteImage(sitk_img,lab_save_directrory+"/"+filename)
-
-
 	
 # iterate through directory of labels
 dir=os.listdir(lab_directrory)
